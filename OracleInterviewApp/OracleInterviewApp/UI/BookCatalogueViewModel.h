@@ -14,6 +14,7 @@
 
 -(void)getBookList:(void (^)(BookList *))onComplete;
 -(instancetype)initWithService:(id<BooksDataServiceProtocol>)service;
+-(NSArray *)filterBooks:(NSArray *)bookList withSearchCriteria: (NSString *)criteria;
 
 @end
 

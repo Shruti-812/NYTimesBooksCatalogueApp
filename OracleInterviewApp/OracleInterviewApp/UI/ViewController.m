@@ -20,7 +20,8 @@
 
 @implementation ViewController
 
-BookList *bookList;
+BookList *data;
+NSArray *booksArray;
 NSString* const kCellID = @"bookDetailCellId";
 UIDatePicker *datePicker;
 
@@ -30,8 +31,9 @@ UIDatePicker *datePicker;
     [self configureUI];
     self.viewModel = [[BookCatalogueViewModel alloc] initWithService: [[BooksDataService alloc] init]];
     [self.activityIndicator startAnimating];
-    [self.viewModel getBookList:^(BookList *books) {
-        bookList = books;
+    [self.viewModel getBookList:^(BookList *booksData) {
+        data = booksData;
+        booksArray = booksData.books;
         dispatch_async(dispatch_get_main_queue(), ^(void){
             [self.activityIndicator stopAnimating];
             [self.tableView reloadData];
@@ -60,9 +62,9 @@ UIDatePicker *datePicker;
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    if (bookList != nil)
+    if (booksArray != nil)
     {
-        return bookList.books.count;
+        return booksArray.count;
     }
     return 0;
 }
@@ -73,7 +75,7 @@ UIDatePicker *datePicker;
     BookDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID forIndexPath:indexPath];
     if (cell != nil)
     {
-        Book *book = [bookList.books objectAtIndex: indexPath.row];
+        Book *book = [booksArray objectAtIndex: indexPath.row];
         [cell updateCellWithData:book];
         return cell;
     }
@@ -81,6 +83,27 @@ UIDatePicker *datePicker;
     {
         return [[UITableViewCell alloc] init];
     }
+}
+
+- (void)searchBar:(UISearchBar *)searchBar
+    textDidChange:(NSString *)searchText
+{
+    if (searchText.length > 0)
+    {
+        booksArray = [self.viewModel filterBooks: booksArray
+                              withSearchCriteria:searchText];
+    }
+    else
+    {
+        booksArray = data.books;
+    }
+    [self.tableView reloadData];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    booksArray = data.books;
+    [self.tableView reloadData];
 }
 
 @end
