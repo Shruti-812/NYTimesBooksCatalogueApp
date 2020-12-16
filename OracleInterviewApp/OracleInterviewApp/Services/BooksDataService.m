@@ -72,7 +72,10 @@ NSString *datewiseBookListAPIPath = @"svc/books/v3/lists/overview.json?published
         if (response.isSuccess)
         {
             NSDictionary *results = [response.json valueForKey: @"results"];
-            booklist = [[BookList alloc] initWithDictionary: results];
+            if (results.count > 0)
+            {
+                booklist = [[BookList alloc] initWithDictionary: results];
+            }
             NSLog(@"%@", booklist);
         }
         onComplete(booklist);

@@ -24,9 +24,11 @@ BooksDataService *_service;
     return self;
 }
 
-- (void)getBookList:(void (^)(BookList *))onComplete
+- (void)getBookListFor:(NSDate *)date
+       completeHandler:(void (^)(BookList *))onComplete
 {
-    [_service getBestsellerBookList:^(BookList *books) {
+    [_service getBestsellerBookListForDate:date
+                            completionHandler:^(BookList *books) {
         onComplete(books);
     }];
 }

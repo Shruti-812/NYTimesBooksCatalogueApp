@@ -150,17 +150,33 @@
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dB9-Jm-CxO">
-                                <rect key="frame" x="0.0" y="70" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="maJ-3c-nPh"/>
                                 </connections>
                             </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xTq-Rm-zw1">
+                                <rect key="frame" x="0.0" y="40" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Book gallery" id="Bbs-Su-U3l">
+                                        <barButtonItem key="rightBarButtonItem" title="Change date" id="LlM-z3-vvu">
+                                            <connections>
+                                                <action selector="didTapChangeDateButton:" destination="BYZ-38-t0r" id="Lng-Xq-KU3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="UJx-FN-35k" firstAttribute="top" secondItem="dB9-Jm-CxO" secondAttribute="bottom" constant="17" id="A0O-a8-VPZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="xTq-Rm-zw1" secondAttribute="top" constant="4" id="0OB-vR-Axj"/>
+                            <constraint firstItem="dB9-Jm-CxO" firstAttribute="top" secondItem="xTq-Rm-zw1" secondAttribute="bottom" id="1UF-ph-FFj"/>
+                            <constraint firstItem="xTq-Rm-zw1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6Fa-VJ-nzH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xTq-Rm-zw1" secondAttribute="trailing" id="Blk-nb-Di5"/>
+                            <constraint firstItem="UJx-FN-35k" firstAttribute="top" secondItem="dB9-Jm-CxO" secondAttribute="bottom" constant="3" id="S8z-Pd-Djh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UJx-FN-35k" secondAttribute="trailing" id="UnW-Fc-ekX"/>
                             <constraint firstItem="4LJ-zh-flp" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-5" id="doF-Uh-nxj"/>
                             <constraint firstItem="dB9-Jm-CxO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eRh-Fx-Bvz"/>
@@ -168,11 +184,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dB9-Jm-CxO" secondAttribute="trailing" id="hUi-gP-P6O"/>
                             <constraint firstItem="UJx-FN-35k" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="n2e-bz-Oba"/>
                             <constraint firstItem="4LJ-zh-flp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sHu-4G-mnQ"/>
-                            <constraint firstItem="dB9-Jm-CxO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="26" id="ulx-tf-mgT"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="4LJ-zh-flp" id="JyD-2S-SSG"/>
+                        <outlet property="navigationBar" destination="xTq-Rm-zw1" id="Vvh-iu-0QX"/>
                         <outlet property="searchBar" destination="dB9-Jm-CxO" id="8HR-70-ekx"/>
                         <outlet property="tableView" destination="UJx-FN-35k" id="b95-Uk-B6k"/>
                     </connections>

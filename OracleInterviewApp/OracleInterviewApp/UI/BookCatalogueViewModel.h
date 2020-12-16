@@ -12,7 +12,7 @@
 
 @interface BookCatalogueViewModel: NSObject
 
--(void)getBookList:(void (^)(BookList *))onComplete;
+-(void)getBookListFor:(NSDate*)date completeHandler:(void (^)(BookList *))onComplete;
 -(instancetype)initWithService:(id<BooksDataServiceProtocol>)service;
 -(NSArray *)filterBooks:(NSArray *)bookList withSearchCriteria: (NSString *)criteria;
 

@@ -24,14 +24,20 @@ BookList *data;
 NSArray *booksArray;
 NSString* const kCellID = @"bookDetailCellId";
 UIDatePicker *datePicker;
+NSDate *selectedDate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self configureUI];
     self.viewModel = [[BookCatalogueViewModel alloc] initWithService: [[BooksDataService alloc] init]];
+    selectedDate = [NSDate date];
+    [self loadData];
+}
+
+-(void)loadData
+{
     [self.activityIndicator startAnimating];
-    [self.viewModel getBookList:^(BookList *booksData) {
+    [self.viewModel getBookListFor: selectedDate completeHandler:^(BookList *booksData) {
         data = booksData;
         booksArray = booksData.books;
         dispatch_async(dispatch_get_main_queue(), ^(void){
@@ -41,22 +47,31 @@ UIDatePicker *datePicker;
     }];
 }
 
--(void)configureUI
+-(IBAction)didTapChangeDateButton:(id)sender
 {
-    UIButton *rightButton = [UIButton buttonWithType: UIButtonTypeInfoLight];
-    [rightButton addTarget: self
-                    action: @selector(addDatePicker)
-          forControlEvents: UIControlEventTouchUpInside];
-    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView: rightButton];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+    [self addDatePicker];
 }
 
 -(void)addDatePicker
 {
     datePicker = [[UIDatePicker alloc] init];
     [datePicker setDatePickerMode:UIDatePickerModeDate];
-    [datePicker setPreferredDatePickerStyle:UIDatePickerStyleWheels];
-    [datePicker setDate:[NSDate date]];
+    datePicker.backgroundColor = [UIColor whiteColor];
+    [datePicker setValue:[UIColor blackColor] forKey:@"textColor"];
+    datePicker.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [datePicker setMaximumDate:[NSDate date]];
+    [datePicker setDate:selectedDate];
+    
+    [datePicker addTarget:self action:@selector(didChangeDateTo:) forControlEvents:UIControlEventValueChanged];
+    datePicker.frame = CGRectMake(0.0, [UIScreen mainScreen].bounds.size.height - 100, [UIScreen mainScreen].bounds.size.width, 100);
+    [self.view addSubview: datePicker];
+}
+
+-(void)didChangeDateTo:(UIDatePicker *)picker
+{
+    selectedDate = picker.date;
+    [datePicker removeFromSuperview];
+    [self loadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
