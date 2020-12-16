@@ -10,7 +10,14 @@
 #ifndef BooksDataService_h
 #define BooksDataService_h
 
-@interface BooksDataService : NSObject
+@protocol BooksDataServiceProtocol <NSObject>
+
+-(void)getBestsellerBookList:(void(^)(BookList*))onComplete;
+-(void)getBestsellerBookListForDate:(NSDate *)date completionHandler: (void(^)(BookList *))onComplete;
+
+@end
+
+@interface BooksDataService : NSObject<BooksDataServiceProtocol>
 
 -(void)getBestsellerBookList:(void(^)(BookList*))onComplete;
 -(void)getBestsellerBookListForDate:(NSDate *)date completionHandler: (void(^)(BookList *))onComplete;

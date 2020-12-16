@@ -31,6 +31,8 @@
 		68D665452587A6D20065C71D /* BookList.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D665442587A6D20065C71D /* BookList.m */; };
 		68D6654E25884D8A0065C71D /* BooksDataServiceUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D6654D25884D8A0065C71D /* BooksDataServiceUnitTests.m */; };
 		68D6655325884E430065C71D /* MockRestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D6655225884E430065C71D /* MockRestClient.m */; };
+		68D66564258865720065C71D /* BookCatalogueViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D66563258865700065C71D /* BookCatalogueViewModel.m */; };
+		68D6656D25899EE60065C71D /* BookDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D6656C25899EE60065C71D /* BookDetailTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,10 @@
 		68D6654D25884D8A0065C71D /* BooksDataServiceUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BooksDataServiceUnitTests.m; sourceTree = "<group>"; };
 		68D6655225884E430065C71D /* MockRestClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockRestClient.m; sourceTree = "<group>"; };
 		68D6655825884E630065C71D /* MockRestClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockRestClient.h; sourceTree = "<group>"; };
+		68D66562258865590065C71D /* BookCatalogueViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookCatalogueViewModel.h; sourceTree = "<group>"; };
+		68D66563258865700065C71D /* BookCatalogueViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookCatalogueViewModel.m; sourceTree = "<group>"; };
+		68D6656B25899E9D0065C71D /* BookDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookDetailTableViewCell.h; sourceTree = "<group>"; };
+		68D6656C25899EE60065C71D /* BookDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookDetailTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,7 @@
 		68D6648B257E6E1C0065C71D /* OracleInterviewApp */ = {
 			isa = PBXGroup;
 			children = (
+				68D665712589AB9D0065C71D /* UI */,
 				68D664C4257E6EFF0065C71D /* WebCommunication */,
 				68D6650025876CC90065C71D /* Services */,
 				68D664E025863E320065C71D /* Common */,
@@ -153,8 +160,6 @@
 				68D6648D257E6E1C0065C71D /* AppDelegate.m */,
 				68D6648F257E6E1C0065C71D /* SceneDelegate.h */,
 				68D66490257E6E1C0065C71D /* SceneDelegate.m */,
-				68D66492257E6E1C0065C71D /* ViewController.h */,
-				68D66493257E6E1C0065C71D /* ViewController.m */,
 				68D66495257E6E1C0065C71D /* Main.storyboard */,
 				68D66498257E6E1F0065C71D /* Assets.xcassets */,
 				68D6649A257E6E1F0065C71D /* LaunchScreen.storyboard */,
@@ -242,6 +247,19 @@
 				68D6655225884E430065C71D /* MockRestClient.m */,
 			);
 			path = MockClasses;
+			sourceTree = "<group>";
+		};
+		68D665712589AB9D0065C71D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				68D6656B25899E9D0065C71D /* BookDetailTableViewCell.h */,
+				68D6656C25899EE60065C71D /* BookDetailTableViewCell.m */,
+				68D66562258865590065C71D /* BookCatalogueViewModel.h */,
+				68D66563258865700065C71D /* BookCatalogueViewModel.m */,
+				68D66492257E6E1C0065C71D /* ViewController.h */,
+				68D66493257E6E1C0065C71D /* ViewController.m */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,11 +394,13 @@
 				68D66494257E6E1C0065C71D /* ViewController.m in Sources */,
 				68D6648E257E6E1C0065C71D /* AppDelegate.m in Sources */,
 				68D664D7257E75610065C71D /* WebRequest.m in Sources */,
+				68D6656D25899EE60065C71D /* BookDetailTableViewCell.m in Sources */,
 				68D6649F257E6E1F0065C71D /* main.m in Sources */,
 				68D6650325876EE60065C71D /* BooksDataService.m in Sources */,
 				68D664C6257E6F230065C71D /* RestClient.m in Sources */,
 				68D664DC257E79760065C71D /* WebResponse.m in Sources */,
 				68D664CF257E6FF70065C71D /* Book.m in Sources */,
+				68D66564258865720065C71D /* BookCatalogueViewModel.m in Sources */,
 				68D665452587A6D20065C71D /* BookList.m in Sources */,
 				68D66491257E6E1C0065C71D /* SceneDelegate.m in Sources */,
 				68D665252587938F0065C71D /* SecureStorage.m in Sources */,
