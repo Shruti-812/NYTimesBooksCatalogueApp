@@ -27,6 +27,11 @@ BooksDataService *_service;
 - (void)getBookListFor:(NSDate *)date
        completeHandler:(void (^)(BookList *))onComplete
 {
+    if (date == nil)
+    {
+        return onComplete(nil);
+    }
+    
     [_service getBestsellerBookListForDate:date
                             completionHandler:^(BookList *books) {
         onComplete(books);
@@ -35,9 +40,14 @@ BooksDataService *_service;
 
 - (NSArray*)filterBooks:(NSArray *)bookList withSearchCriteria:(NSString *)criteria
 {
+    if (criteria == nil)
+    {
+        return bookList;
+    }
+    
     return [bookList filteredArrayUsingPredicate: [NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         
-        Book *book = (Book*)evaluatedObject;
+        Book *book = (Book*)evaluatedObject;        
         return [book.title hasPrefix:criteria];
     }]];
 }

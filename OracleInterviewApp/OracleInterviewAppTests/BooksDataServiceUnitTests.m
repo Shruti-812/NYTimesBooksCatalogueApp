@@ -52,7 +52,7 @@
                                  handler:^(NSError *error) {
         if (error != nil)
         {
-            XCTFail("testSendRequest_ShouldReturnJSON failed");
+            XCTFail("testGetBestsellerBookList_Success failed");
         }
     }];
 }
@@ -77,7 +77,7 @@
                                  handler:^(NSError *error) {
         if (error != nil)
         {
-            XCTFail("testSendRequest_ShouldReturnJSON failed");
+            XCTFail("testGetBestsellerBookList_Failure failed");
         }
     }];
 }
@@ -103,7 +103,7 @@
                                  handler:^(NSError *error) {
         if (error != nil)
         {
-            XCTFail("testSendRequest_ShouldReturnJSON failed");
+            XCTFail("testGetBestsellerBookListForDate_Success failed");
         }
     }];
 }
@@ -128,7 +128,32 @@
                                  handler:^(NSError *error) {
         if (error != nil)
         {
-            XCTFail("testSendRequest_ShouldReturnJSON failed");
+            XCTFail("testGetBestsellerBookListForDate_Failure failed");
+        }
+    }];
+}
+
+-(void)testGetBestsellerBookListForDate_InvalidDateInput_ShouldReturnNil
+{
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Response received"];
+    
+    _service = [[BooksDataService alloc] init];
+    MockRestClient *mockWebService = [[MockRestClient alloc] init];
+    WebResponse *response = [[WebResponse alloc] init];
+    response.isSuccess = false;
+    mockWebService.dummyResponse = response;
+    _service.webService = mockWebService;
+    
+    [_service getBestsellerBookListForDate:nil completionHandler:^(BookList *books) {
+        XCTAssertNil(books);
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout: 30
+                                 handler:^(NSError *error) {
+        if (error != nil)
+        {
+            XCTFail("testGetBestsellerBookListForDate_InvalidDateInput_ShouldReturnNil failed");
         }
     }];
 }

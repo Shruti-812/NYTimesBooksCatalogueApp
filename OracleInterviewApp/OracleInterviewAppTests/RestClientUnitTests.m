@@ -62,7 +62,7 @@
                                  handler:^(NSError *error) {
         if (error != nil)
         {
-            XCTFail("testSendRequest_ShouldInitializeDataTask succeeded");
+            XCTFail("testSendRequest_BadJSON succeeded");
         }
     }];
 }

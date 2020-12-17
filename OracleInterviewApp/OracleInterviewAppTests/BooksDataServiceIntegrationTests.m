@@ -40,7 +40,7 @@
                                  handler:^(NSError *error) {
         if (error != nil)
         {
-            XCTFail("testSendRequest_ShouldReturnJSON failed");
+            XCTFail("testGetBestsellerBookList_ShouldParseJsonToModel failed");
         }
     }];
 }
@@ -60,7 +60,7 @@
                                  handler:^(NSError *error) {
         if (error != nil)
         {
-            XCTFail("testSendRequest_ShouldReturnJSON failed");
+            XCTFail("testGetBestsellerBookListForDate_ShouldParseJsonToModel failed");
         }
     }];
 }

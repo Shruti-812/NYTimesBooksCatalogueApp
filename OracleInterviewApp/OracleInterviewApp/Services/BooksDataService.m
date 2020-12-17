@@ -53,6 +53,11 @@ NSString *datewiseBookListAPIPath = @"svc/books/v3/lists/overview.json?published
 -(void)getBestsellerBookListForDate:(NSDate *)date
                   completionHandler:(void (^)(BookList *))onComplete
 {
+    if (date == nil)
+    {
+        return onComplete(nil);
+    }
+    
     NSString *url = [NSString stringWithFormat:@"%@%@", kBaseURL, [self getDateWiseBookListAPIPathFor: date]];
     [self getBookListFrom: url completionHandler:^(BookList *books) {
             onComplete(books);
@@ -62,6 +67,11 @@ NSString *datewiseBookListAPIPath = @"svc/books/v3/lists/overview.json?published
 -(void)getBookListFrom:(NSString *)url
                      completionHandler:(void (^)(BookList *))onComplete
 {
+    if (url == nil)
+    {
+        return onComplete(nil);
+    }
+    
     WebRequest *request = [[WebRequest alloc] initWithURL: url
                                                httpMethod: GET
                                               requestBody: nil];

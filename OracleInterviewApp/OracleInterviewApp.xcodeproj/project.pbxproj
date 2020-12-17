@@ -33,6 +33,8 @@
 		68D6655325884E430065C71D /* MockRestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D6655225884E430065C71D /* MockRestClient.m */; };
 		68D66564258865720065C71D /* BookCatalogueViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D66563258865700065C71D /* BookCatalogueViewModel.m */; };
 		68D6656D25899EE60065C71D /* BookDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D6656C25899EE60065C71D /* BookDetailTableViewCell.m */; };
+		68D66579258AEE400065C71D /* MockBookDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D66578258AEE400065C71D /* MockBookDataService.m */; };
+		68D66590258AF1090065C71D /* BookCatalogueViewModelUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D6658F258AF1090065C71D /* BookCatalogueViewModelUnitTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,9 @@
 		68D66563258865700065C71D /* BookCatalogueViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookCatalogueViewModel.m; sourceTree = "<group>"; };
 		68D6656B25899E9D0065C71D /* BookDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookDetailTableViewCell.h; sourceTree = "<group>"; };
 		68D6656C25899EE60065C71D /* BookDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookDetailTableViewCell.m; sourceTree = "<group>"; };
+		68D66578258AEE400065C71D /* MockBookDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockBookDataService.m; sourceTree = "<group>"; };
+		68D6657D258AEE4D0065C71D /* MockBookDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockBookDataService.h; sourceTree = "<group>"; };
+		68D6658F258AF1090065C71D /* BookCatalogueViewModelUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookCatalogueViewModelUnitTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +184,7 @@
 				68D6650C258775DA0065C71D /* RestClientUnitTests.m */,
 				68D6653F2587A2720065C71D /* BooksDataServiceIntegrationTests.m */,
 				68D6654D25884D8A0065C71D /* BooksDataServiceUnitTests.m */,
+				68D6658F258AF1090065C71D /* BookCatalogueViewModelUnitTests.m */,
 			);
 			path = OracleInterviewAppTests;
 			sourceTree = "<group>";
@@ -245,6 +251,8 @@
 				68D6653A25879CCD0065C71D /* MockURLSessionDataTask.m */,
 				68D6655825884E630065C71D /* MockRestClient.h */,
 				68D6655225884E430065C71D /* MockRestClient.m */,
+				68D6657D258AEE4D0065C71D /* MockBookDataService.h */,
+				68D66578258AEE400065C71D /* MockBookDataService.m */,
 			);
 			path = MockClasses;
 			sourceTree = "<group>";
@@ -417,7 +425,9 @@
 				68D6655325884E430065C71D /* MockRestClient.m in Sources */,
 				68D6653325879CBC0065C71D /* MockURLSession.m in Sources */,
 				68D664A9257E6E200065C71D /* OracleInterviewAppTests.m in Sources */,
+				68D66579258AEE400065C71D /* MockBookDataService.m in Sources */,
 				68D66508258775C40065C71D /* RestClientIntegrationTests.m in Sources */,
+				68D66590258AF1090065C71D /* BookCatalogueViewModelUnitTests.m in Sources */,
 				68D6650D258775DA0065C71D /* RestClientUnitTests.m in Sources */,
 				68D665402587A2720065C71D /* BooksDataServiceIntegrationTests.m in Sources */,
 			);

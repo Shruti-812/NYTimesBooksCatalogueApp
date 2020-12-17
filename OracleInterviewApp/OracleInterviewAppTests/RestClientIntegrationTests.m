@@ -46,7 +46,7 @@
                                  handler:^(NSError *error) {
         if (error != nil)
         {
-            XCTFail("testSendRequest_ShouldReturnJSON failed");
+            XCTFail("testOverviewAPI_ShouldReturnJSON failed");
         }
     }];
 }

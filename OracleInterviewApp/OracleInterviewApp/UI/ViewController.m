@@ -117,6 +117,7 @@ NSDate *selectedDate;
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
+    searchBar.text = @"";
     booksArray = data.books;
     [self.tableView reloadData];
 }
